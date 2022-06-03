@@ -27,7 +27,7 @@
                 <thead>
                     <tr>
                         <th>Title</th>
-                        <th>Author</th>
+                        <th>Coach: {{Auth::user()->name}}</th>
                         <th>Categories</th>
                         <th>Comments</th>
                         <th>Created</th>
@@ -43,7 +43,7 @@
                                 </a>
                             </td>
                             <td>
-                                {{ $pokemon->user->name }}
+                                {{ $pokemon->name }}
                             </td>
                             <td>
                                 {{-- @foreach ($post->categories as $category)
