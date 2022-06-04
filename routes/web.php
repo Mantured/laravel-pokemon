@@ -29,4 +29,6 @@ Route::middleware('auth') // § intermediario che si assicura che il contenuto s
         Route::resource('pokemons', 'PokemonsController');
     });
 
-    Route::get('/{any}', 'Guest\HomeController@index')->where('any','.*');
+Route::get('/pokemons', 'Guest\PokemonsController@index')->name('guest.pokemons.index');
+
+Route::get('/{any}', 'Guest\HomeController@index')->where('any','.*');
