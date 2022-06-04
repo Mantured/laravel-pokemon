@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/* Route::get('/', function () {
     return view('welcome');
-});
+}); */
 
 Auth::routes();
 
@@ -29,4 +29,4 @@ Route::middleware('auth') // § intermediario che si assicura che il contenuto s
         Route::resource('pokemons', 'PokemonsController');
     });
 
-    Route::get('/{any}', 'Admin\HomeController@index')->where('any','.*');
+    Route::get('/{any}', 'Guest\HomeController@index')->where('any','.*');
