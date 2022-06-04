@@ -25,8 +25,8 @@ Route::middleware('auth') // § intermediario che si assicura che il contenuto s
     ->name('admin.')   // § aggiunge come prefisso sui controller contenuti nel gruppo admin come prefisso ai name
     ->group(function(){
         // # inserisco qui le mie rotte riservate agli admin
-        /* Route::get('/', 'HomeController@index')->name('home');   // | Aggiunta facoltativa ->middleware('password.confirm'); */
+        Route::get('/', 'HomeController@index')->name('home');   // | Aggiunta facoltativa ->middleware('password.confirm'); */
         Route::resource('pokemons', 'PokemonsController');
     });
 
-Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/{any}', 'HomeController@index')->where('any','.*');
