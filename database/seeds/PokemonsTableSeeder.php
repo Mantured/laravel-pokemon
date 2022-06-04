@@ -1,7 +1,7 @@
 
 <?php
 
-use App\Pokemon;
+use App\Models\Pokemon;
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
 use App\User;

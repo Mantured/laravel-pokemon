@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,7 +20,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::middleware('auth') // § intermediario che si assicura che il contenuto sia mostrato solo ad utenti loggati
-     // # aggiunge come prefisso sui controller contenuti nel gruppo Admin come namespace
+    ->namespace('Admin') // # aggiunge come prefisso sui controller contenuti nel gruppo Admin come namespace
     ->prefix('admin')  // ? aggiunge come prefisso sui controller contenuti nel gruppo admin come prefisso agli URI
     ->name('admin.')   // § aggiunge come prefisso sui controller contenuti nel gruppo admin come prefisso ai name
     ->group(function(){
@@ -29,4 +29,4 @@ Route::middleware('auth') // § intermediario che si assicura che il contenuto s
         Route::resource('pokemons', 'PokemonsController');
     });
 
-    Route::get('/{any}', 'HomeController@index')->where('any','.*');
+    Route::get('/{any}', 'Admin\HomeController@index')->where('any','.*');

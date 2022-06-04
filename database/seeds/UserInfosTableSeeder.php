@@ -4,7 +4,7 @@ use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
 use App\User;
-use App\UserInfo;
+use App\Models\UserInfo;
 
 class UserInfosTableSeeder extends Seeder
 {

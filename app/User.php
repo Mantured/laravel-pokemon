@@ -39,10 +39,10 @@ class User extends Authenticatable
 
 
     public function userInfo(){
-        return $this->hasOne('App\UserInfo');
+        return $this->hasOne('App\Models\UserInfo');
     }
 
     public function pokemons(){
-        return $this->hasMany('App\Pokemon');
+        return $this->hasMany('App\Models\Pokemon');
     }
 }
