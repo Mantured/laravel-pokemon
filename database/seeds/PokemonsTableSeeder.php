@@ -4,7 +4,7 @@
 use App\Models\Pokemon;
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
-use App\User;
+use App\Models\User;
 
 class PokemonsTableSeeder extends Seeder
 {

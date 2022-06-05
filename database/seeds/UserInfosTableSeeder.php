@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
-use App\User;
+use App\Models\User;
 use App\Models\UserInfo;
 
 class UserInfosTableSeeder extends Seeder
@@ -15,7 +15,7 @@ class UserInfosTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        // ? Prendo tutti i diversi id da User e li trasformo in un array
+        /* // ? Prendo tutti i diversi id da User e li trasformo in un array
         $user_ids = User::pluck('id')->toArray();
 
         for ($i=0; $i < count($user_ids); $i++) {
@@ -25,6 +25,16 @@ class UserInfosTableSeeder extends Seeder
             $newUser->address = $faker->streetAddress();
             $newUser->avatar = $faker->imageUrl(250,250);
             $newUser->save();
+        } */
+
+        $users = User::all();
+        for ($i = 0; $i < count($users); $i++) {
+            $new_UserInfo = new UserInfo();
+            $new_UserInfo->user_id = $i + 1;
+            $new_UserInfo->ruolo = $faker->text(50);
+            $new_UserInfo->costo_orario = rand(1, 1000)/100;
+
+            $new_UserInfo->save();
         }
         //
     }

@@ -14,15 +14,19 @@ class CreateUserInfosTable extends Migration
     public function up()
     {
         Schema::create('user_infos', function (Blueprint $table) {
-            $table->unsignedBigInteger('user_id')->primary();
-            $table->string('phone');
-            $table->string('address');
-            $table->text('avatar');
+            $table->id();
+            $table->foreignId('user_id')->index()->constrained()->onDelete('cascade');
+            $table->string('titolo', 10)->nullable();
+            $table->string('ruolo', 50)->nullable();
+            $table->float('costo_orario', 8, 2)->default(0);
+            $table->date('data_nascita')->nullable();
+            $table->boolean('firma_rdp')->nullable()->default(false);
+            $table->boolean('firma_prev')->nullable()->default(false);
+            $table->boolean('firma_acq')->nullable()->default(false);
+            $table->boolean('resp_qua')->nullable()->default(false);
+            $table->boolean('convalida_rdp')->nullable()->default(false);
+            $table->softDeletes();
             $table->timestamps();
-            $table->foreign('user_id')
-            ->references('id')
-            ->on('users')
-            ->onDelete('cascade');
         });
     }
 
